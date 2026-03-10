@@ -1,6 +1,6 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
-const features: { title: string; description: string; icon: React.ReactNode }[] = [
+const features: { title: string; description: string; icon: ReactNode }[] = [
   {
     title: 'React 19',
     description:
