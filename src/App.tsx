@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    const stored = localStorage.getItem('darkMode');
+    if (stored !== null) return stored === 'true';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', String(darkMode));
+  }, [darkMode]);
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -16,7 +24,7 @@ export default function App() {
         Skip to main content
       </a>
       <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors">
-        <Header darkMode={darkMode} onToggleDark={() => setDarkMode(!darkMode)} />
+        <Header darkMode={darkMode} onToggleDark={() => setDarkMode(prev => !prev)} />
         <main id="main-content">
           <Hero />
           <Features />
