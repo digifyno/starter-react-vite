@@ -82,3 +82,11 @@ npm run test:watch   # Run tests in watch mode
 - Strict mode with `noUnusedLocals`, `noUnusedParameters`, `noUncheckedIndexedAccess`
 - Two tsconfig files: `tsconfig.app.json` (source) and `tsconfig.node.json` (config files)
 - Run `npx tsc --noEmit` to type-check without building (uses project references)
+
+## GitHub Actions / CI Workflows
+
+**BLOCKED**: The GitHub PAT for this product has only `repo` scope. Adding or modifying files under `.github/workflows/` requires `workflow` scope and will be rejected by GitHub with a push error.
+
+**Do NOT attempt to add `.github/workflows/` files** until the platform admin updates the PAT for this product (`d730a230-b571-50b0-b074-9ac09c11bf02`) to include `workflow` scope.
+
+To request the fix: update the GitHub PAT in product settings (GitHub user: `nat7676`) to include both `repo` and `workflow` scopes.
