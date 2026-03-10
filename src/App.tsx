@@ -32,7 +32,7 @@ export default function App() {
         Skip to main content
       </a>
       <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors">
-        <Header darkMode={darkMode} onToggleDark={() => setDarkMode(prev => !prev)} />
+        <Header darkMode={darkMode} onToggleDark={() => setDarkMode((prev) => !prev)} />
         <main id="main-content">
           <Hero />
           <Features />

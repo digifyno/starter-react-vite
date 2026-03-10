@@ -11,8 +11,8 @@ export function Hero() {
       </h1>
 
       <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-        A production-ready starter with React 19, Vite, TypeScript, and Tailwind CSS.
-        Start building your next project in seconds.
+        A production-ready starter with React 19, Vite, TypeScript, and Tailwind CSS. Start building
+        your next project in seconds.
       </p>
 
       <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

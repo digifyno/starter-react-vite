@@ -5,7 +5,9 @@ import { Footer } from './Footer';
 describe('Footer', () => {
   it('renders footer text', () => {
     render(<Footer />);
-    expect(screen.getByText('Built with React, Vite, TypeScript, and Tailwind CSS.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Built with React, Vite, TypeScript, and Tailwind CSS.'),
+    ).toBeInTheDocument();
   });
 
   it('uses <footer> landmark role', () => {

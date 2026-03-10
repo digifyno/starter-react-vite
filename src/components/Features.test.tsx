@@ -10,7 +10,14 @@ describe('Features', () => {
 
   it('renders all 6 feature card titles', () => {
     render(<Features />);
-    const titles = ['React 19', 'Vite', 'TypeScript', 'Tailwind CSS', 'ESLint + Prettier', 'Vitest'];
+    const titles = [
+      'React 19',
+      'Vite',
+      'TypeScript',
+      'Tailwind CSS',
+      'ESLint + Prettier',
+      'Vitest',
+    ];
     for (const title of titles) {
       expect(screen.getByRole('heading', { name: title })).toBeInTheDocument();
     }

@@ -1,0 +1,4 @@
+.rsi/
+.claude/
+dist/
+node_modules/
