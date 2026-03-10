@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { Header } from './Header';
+import { REPO_URL } from '../config';
 
 describe('Header', () => {
   it('renders the brand name', () => {
@@ -35,7 +36,7 @@ describe('Header', () => {
   it('Docs link points to GitHub, not a dead anchor', () => {
     render(<Header darkMode={false} onToggleDark={vi.fn()} />);
     const docsLink = screen.getByRole('link', { name: 'Docs' });
-    expect(docsLink).toHaveAttribute('href', 'https://github.com/digifyno/starter-react-vite');
+    expect(docsLink).toHaveAttribute('href', REPO_URL);
   });
 
   it('opens mobile menu when hamburger is clicked', () => {

@@ -1,3 +1,5 @@
+import { REPO_URL } from '../config';
+
 export function Hero() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-24 text-center sm:px-6 sm:py-32">
@@ -21,7 +23,7 @@ export function Hero() {
           Get started
         </a>
         <a
-          href="https://github.com/digifyno/starter-react-vite"
+          href={REPO_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 transition-colors"

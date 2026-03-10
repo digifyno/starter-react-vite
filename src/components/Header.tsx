@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { REPO_URL } from '../config';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -28,7 +29,7 @@ export function Header({ darkMode, onToggleDark }: HeaderProps) {
           <a href="#features" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Features
           </a>
-          <a href="https://github.com/digifyno/starter-react-vite" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Docs
           </a>
         </nav>
@@ -79,7 +80,7 @@ export function Header({ darkMode, onToggleDark }: HeaderProps) {
             Features
           </a>
           <a
-            href="https://github.com/digifyno/starter-react-vite"
+            href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
