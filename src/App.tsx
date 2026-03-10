@@ -15,8 +15,16 @@ export default function App() {
     localStorage.setItem('darkMode', String(darkMode));
   }, [darkMode]);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
@@ -31,6 +39,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }

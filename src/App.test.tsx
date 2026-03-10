@@ -17,8 +17,7 @@ describe('App', () => {
     render(<App />);
     const toggles = screen.getAllByLabelText('Toggle dark mode');
     fireEvent.click(toggles[0]!);
-    // After click, the wrapper div should have 'dark' class
-    const wrapper = toggles[0]!.closest('.dark');
-    expect(wrapper).not.toBeNull();
+    // After click, the html element should have 'dark' class
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
   });
 });
