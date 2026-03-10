@@ -24,11 +24,11 @@ export function Header({ darkMode, onToggleDark }: HeaderProps) {
           <span className="text-lg font-bold tracking-tight">React Starter</span>
         </div>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium sm:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 text-sm font-medium sm:flex">
           <a href="#features" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Features
           </a>
-          <a href="#docs" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <a href="https://github.com/digifyno/starter-react-vite" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Docs
           </a>
         </nav>
@@ -70,7 +70,7 @@ export function Header({ darkMode, onToggleDark }: HeaderProps) {
       </div>
 
       {menuOpen && (
-        <nav id="mobile-nav" className="sm:hidden border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-3 text-sm font-medium">
+        <nav id="mobile-nav" aria-label="Mobile navigation" className="sm:hidden border-t border-gray-200 dark:border-gray-800 px-4 py-3 flex flex-col gap-3 text-sm font-medium">
           <a
             href="#features"
             onClick={() => setMenuOpen(false)}
@@ -79,7 +79,9 @@ export function Header({ darkMode, onToggleDark }: HeaderProps) {
             Features
           </a>
           <a
-            href="#docs"
+            href="https://github.com/digifyno/starter-react-vite"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
