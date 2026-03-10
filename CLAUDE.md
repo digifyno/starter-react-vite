@@ -6,10 +6,14 @@
 ├── public/              # Static assets served as-is
 ├── src/
 │   ├── components/      # React components
-│   │   ├── Header.tsx   # Sticky nav with dark mode toggle
-│   │   ├── Hero.tsx     # Landing hero section
-│   │   ├── Features.tsx # Feature cards grid
-│   │   └── Footer.tsx   # Page footer
+│   │   ├── Header.tsx        # Sticky nav with dark mode toggle
+│   │   ├── Header.test.tsx
+│   │   ├── Hero.tsx          # Landing hero section
+│   │   ├── Hero.test.tsx
+│   │   ├── Features.tsx      # Feature cards grid
+│   │   ├── Features.test.tsx
+│   │   ├── Footer.tsx        # Page footer
+│   │   └── Footer.test.tsx
 │   ├── App.tsx          # Root component with dark mode state
 │   ├── App.test.tsx     # App-level tests
 │   ├── main.tsx         # Entry point — renders App into #root
@@ -30,7 +34,7 @@
 
 - **React 19** — UI framework with hooks and concurrent features
 - **Vite 6** — Build tool with HMR and optimized production builds
-- **TypeScript 5.7** — Strict mode enabled
+- **TypeScript 5.8** — Strict mode enabled
 - **Tailwind CSS 4** — Utility-first CSS via Vite plugin (no PostCSS config needed)
 - **Vitest** — Unit testing with jsdom and React Testing Library
 - **ESLint 9** — Flat config with react-hooks and react-refresh plugins
@@ -56,6 +60,8 @@ npm run test:watch   # Run tests in watch mode
 - Use function components with TypeScript interfaces for props
 - Styling uses Tailwind utility classes inline — no separate CSS files per component
 - Dark mode applies the `dark` class to `<html>` (`document.documentElement`), persisted via `localStorage`; defaults to OS `prefers-color-scheme`
+- A skip-to-content link (`<a href="#main-content">`) is rendered at the top of `App.tsx` for keyboard accessibility
+- `index.html` includes a Content Security Policy meta tag — update `connect-src` if making external API calls
 - Tests are co-located with source: `Component.tsx` → `Component.test.tsx`
 - Import order: React/libraries, then components, then styles
 
