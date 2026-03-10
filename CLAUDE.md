@@ -55,7 +55,7 @@ npm run test:watch   # Run tests in watch mode
 - One component per file, filename matches component name (PascalCase)
 - Use function components with TypeScript interfaces for props
 - Styling uses Tailwind utility classes inline — no separate CSS files per component
-- Dark mode uses the `dark:` variant via a wrapper `<div className="dark">`
+- Dark mode applies the `dark` class to `<html>` (`document.documentElement`), persisted via `localStorage`; defaults to OS `prefers-color-scheme`
 - Tests are co-located with source: `Component.tsx` → `Component.test.tsx`
 - Import order: React/libraries, then components, then styles
 
