@@ -90,6 +90,15 @@ npm run test:watch   # Run tests in watch mode
 
 **BLOCKED**: The GitHub PAT for this product has only `repo` scope. Adding or modifying files under `.github/workflows/` requires `workflow` scope and will be rejected by GitHub with a push error.
 
+**Last verified**: 2026-03-11 — GitHub API confirms `x-oauth-scopes: repo` only (account: `nat7676`).
+
 **Do NOT attempt to add `.github/workflows/` files** until the platform admin updates the PAT for this product (`d730a230-b571-50b0-b074-9ac09c11bf02`) to include `workflow` scope.
 
-To request the fix: update the GitHub PAT in product settings (GitHub user: `nat7676`) to include both `repo` and `workflow` scopes.
+### Admin Steps to Fix
+
+1. Go to GitHub → Settings → Developer settings → Personal access tokens
+2. Sign in as `nat7676`
+3. Find the PAT used for this product and regenerate it (or create a new one) with both `repo` **and** `workflow` scopes selected
+4. In the RSI Platform admin portal, navigate to product `d730a230-b571-50b0-b074-9ac09c11bf02` settings
+5. Update the GitHub PAT field with the new token
+6. Once updated, workers can push `.github/workflows/` files and CI/CD pipelines can be established
