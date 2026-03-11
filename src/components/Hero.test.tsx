@@ -19,4 +19,9 @@ describe('Hero', () => {
     expect(githubLink).toHaveAttribute('target', '_blank');
     expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
+
+  it('Get started CTA links to #features', () => {
+    render(<Hero />);
+    expect(screen.getByRole('link', { name: 'Get started' })).toHaveAttribute('href', '#features');
+  });
 });

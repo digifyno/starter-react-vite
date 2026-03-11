@@ -1,9 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import App from './App';
 
 afterEach(() => {
   document.documentElement.classList.remove('dark');
+  localStorage.clear();
 });
 
 describe('App', () => {
@@ -28,5 +29,25 @@ describe('App', () => {
     const toggle = screen.getAllByLabelText('Toggle dark mode')[0]!;
     fireEvent.click(toggle);
     expect(document.documentElement.classList.contains('dark')).toBe(true);
+  });
+
+  it('initializes dark mode from localStorage when set to true', () => {
+    localStorage.setItem('darkMode', 'true');
+    render(<App />);
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+  });
+
+  it('initializes light mode from localStorage when set to false', () => {
+    localStorage.setItem('darkMode', 'false');
+    render(<App />);
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+  });
+
+  it('persists dark mode preference to localStorage on toggle', () => {
+    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem');
+    render(<App />);
+    fireEvent.click(screen.getAllByLabelText('Toggle dark mode')[0]!);
+    expect(setItemSpy).toHaveBeenCalledWith('darkMode', 'true');
+    setItemSpy.mockRestore();
   });
 });

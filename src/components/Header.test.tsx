@@ -52,4 +52,20 @@ describe('Header', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(screen.getByLabelText('Open menu')).toBeInTheDocument();
   });
+
+  it('closes mobile menu when a nav link is clicked', () => {
+    render(<Header darkMode={false} onToggleDark={vi.fn()} />);
+    fireEvent.click(screen.getByLabelText('Open menu'));
+    const mobileFeatureLink = screen.getAllByRole('link', { name: 'Features' })[1]!;
+    fireEvent.click(mobileFeatureLink);
+    expect(screen.queryByRole('navigation', { name: 'Mobile navigation' })).not.toBeInTheDocument();
+  });
+
+  it('hamburger button reflects aria-expanded state', () => {
+    render(<Header darkMode={false} onToggleDark={vi.fn()} />);
+    const button = screen.getByLabelText('Open menu');
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(button);
+    expect(screen.getByLabelText('Close menu')).toHaveAttribute('aria-expanded', 'true');
+  });
 });
