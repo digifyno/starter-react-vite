@@ -16,10 +16,12 @@
 │   │   └── Footer.test.tsx
 │   ├── App.tsx          # Root component with dark mode state
 │   ├── App.test.tsx     # App-level tests
+│   ├── config.ts        # Template constants (REPO_URL) — update when scaffolding
 │   ├── main.tsx         # Entry point — renders App into #root
 │   ├── index.css        # Tailwind CSS import
 │   ├── test-setup.ts    # Vitest setup (jest-dom matchers)
 │   └── vite-env.d.ts    # Vite client types
+├── .nvmrc               # Node.js version pin (node 22)
 ├── index.html           # HTML entry point (Vite processes this)
 ├── vite.config.ts       # Vite config: React plugin + Tailwind plugin
 ├── vitest.config.ts     # Vitest config: jsdom environment
@@ -64,6 +66,7 @@ npm run test:watch   # Run tests in watch mode
 - `index.html` includes a Content Security Policy meta tag — update `connect-src` if making external API calls
 - Tests are co-located with source: `Component.tsx` → `Component.test.tsx`
 - Import order: React/libraries, then components, then styles
+- `src/config.ts` exports `REPO_URL` — update this constant when using the template for a new project (replaces the hardcoded GitHub URL in Header and Hero)
 
 ## Build Output
 
